@@ -1,12 +1,24 @@
 import React from 'react';
+import './book-list-item.css'
 
-const BookListItem = ({book}) => {
-
+const BookListItem = ({book, onAddedToCart}) => {
+   const {title, author, price, coverImg} = book;
    return (
-      <>
-         <h3>{book.title}</h3>
-         <span>{book.author}</span>
-      </>
+      <div className='book-list-item'>
+         <div className='book-cover'>
+            <img src={coverImg} alt='cover'/>
+         </div>
+         <div className='book-details'>
+            <span className='book-title'>{title}</span>
+            <div className='book-author'>{author}</div>
+            <div className='book-price'>${price}</div>
+            <button
+               className='btn btn-info add-to-card'
+               onClick={onAddedToCart}
+            >Add to card</button>
+         </div>
+
+      </div>
    )
 }
 
